@@ -637,6 +637,36 @@ padding: 0.5vw;
   transition: ease 0.15s;
 }
 
+.product-details .single-product-details .buy-now{
+  font-size: 0.8vw;
+  padding: 0.8vw 1.2vw;
+  font-weight: 600;
+  background-color:#cdebbc;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: ease 0.15s;
+}
+
 .product-details .single-product-details p{
   line-height:1.6;
+}
+
+/* CART PAGE STYLLING */
+
+.cart table{
+width: 100%;
+border-collapse:collapse;
+table-layout:fixed;
+white-space:nowrap;
+
+
+}
+
+.cart table img{
+  width: 5vw ;
+}
+
+.cart table td{
+  text-align: center;
 }
