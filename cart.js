@@ -1,11 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   const cartTableBody = document.querySelector('.table-body');
+  const grandTotalElement = document.querySelector('.grand-total');
 
-  // Function to remove cart item from local storage
-  function removeCartItem(index) {
-    const existingCartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    existingCartItems.splice(index, 1); // Remove the item at the specified index
-    localStorage.setItem('cart', JSON.stringify(existingCartItems)); // Update local storage
+  let grandTotal = 0;
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Function to remove cart item from local storage and update grand total
+  function removeCartItemAndUpdateTotal(index) {
+    const removedItem = cartItems.splice(index, 1)[0];
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    const subtotal = parseFloat(removedItem.price) * parseInt(removedItem.quantity);
+    grandTotal -= subtotal;
+    grandTotalElement.textContent = `Grand Total: ${grandTotal} Rs.`;
   }
 
   // Handle click on the cross button using event delegation
@@ -14,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (crossButton) {
       const indexToRemove = crossButton.getAttribute('data-index');
       if (indexToRemove !== null) {
-        removeCartItem(indexToRemove);
+        removeCartItemAndUpdateTotal(indexToRemove);
+
         // Remove the row from the table visually
         const rowToRemove = crossButton.closest('tr');
         if (rowToRemove) {
@@ -24,12 +31,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Retrieve cart items from local storage
-  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
-  // Populate the cart table
+  // Populate the cart table and calculate grand total
   cartItems.forEach((item, index) => {
     const newRow = document.createElement('tr');
+    const subtotal = parseFloat(item.price) * parseInt(item.quantity);
     newRow.innerHTML = `
       <td><button class="cross-btn" data-index="${index}"><i class="fa-regular fa-circle-xmark"></i></button></td>
       <td><img src="${item.image}" alt=""></td>
@@ -37,8 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
       <td>${item.size}</td>
       <td>${item.price}</td>
       <td>${item.quantity}</td>
-      <td>${parseFloat(item.price) * parseInt(item.quantity)}Rs.</td>
-    `;
+      <td>${subtotal} Rs.</td>`;
     cartTableBody.appendChild(newRow);
+    grandTotal += subtotal;
   });
+
+  grandTotalElement.textContent = `Grand Total: ${grandTotal} Rs.`;
 });

@@ -655,6 +655,8 @@ padding: 0.5vw;
 /* CART PAGE STYLLING */
 
 .cart table{
+margin-top: 5vw;
+
 width: 100%;
 border-collapse:collapse;
 table-layout:fixed;
@@ -665,8 +667,42 @@ white-space:nowrap;
 
 .cart table img{
   width: 5vw ;
+  padding-top: 2vw;
 }
 
 .cart table td{
   text-align: center;
+}
+
+.check-out{
+  display: flex;
+  justify-content: space-between;
+  padding: 5vw;
+}
+
+.check-out input{
+  width: 70%;
+  height: 3vw;
+  
+  border: none;
+  padding: 1vw;
+  font-size: 1vw;
+}
+
+.check-out button{
+  font-size: 0.8vw;
+  padding: 0.8vw 1.2vw;
+  font-weight: 600;
+  background-color:#cdebbc;
+  color: #000000;
+  
+  cursor: pointer;
+  transition: ease 0.15s;
+}
+
+.grand-total{
+  display: flex;
+  gap: 4vw;
+  justify-content: center;
+  align-items: center;
 }

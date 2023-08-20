@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function addingProductsToCart() {
     const mainImageElement = document.querySelector('.main-image');
     const titleElement = document.querySelector('.single-product-details h4').innerText;
-    const sizeElement = document.querySelector('.select-option').value;
+    const sizeElement = document.querySelector('#sizeSelect').value;
+    console.log(sizeElement)
     const priceElement = document.querySelector('.single-product-details h2').innerText;
     const quantityElement = document.querySelector('.cart-quantity').value;
 
