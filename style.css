@@ -724,5 +724,5 @@ white-space:nowrap;
 .get-in-touch .info ul li{
   display: flex;
   gap: 2vw;
-  line-height: 2;
+  line-height:2;
 }
