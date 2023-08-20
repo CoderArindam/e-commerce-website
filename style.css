@@ -706,3 +706,23 @@ white-space:nowrap;
   justify-content: center;
   align-items: center;
 }
+
+/* CONTACT US PAGE STYLLING */
+
+.get-in-touch{
+  display: flex;
+  justify-content: space-between;
+  padding: 5vw;
+}
+
+.get-in-touch .info{
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.get-in-touch .info ul li{
+  display: flex;
+  gap: 2vw;
+  line-height: 2;
+}
