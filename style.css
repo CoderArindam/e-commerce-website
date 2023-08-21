@@ -636,7 +636,16 @@ padding: 0.5vw;
   cursor: pointer;
   transition: ease 0.15s;
 }
-
+.product-details .single-product-details .add-to-cart-btn{
+  font-size: 0.8vw;
+  padding: 0.8vw 1.2vw;
+  font-weight: 600;
+  background-color:#e0e30b;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: ease 0.15s;
+}
 .product-details .single-product-details .buy-now{
   font-size: 0.8vw;
   padding: 0.8vw 1.2vw;
@@ -719,6 +728,7 @@ white-space:nowrap;
   display: flex;
   flex-direction: column;
   gap: 2vw;
+  width: 40%;
 }
 
 .get-in-touch .info ul li{

@@ -11,6 +11,7 @@ menuBarElement.addEventListener('click', () => {
 crossElement.addEventListener('click', () => {
   navBarElement.style.right = '-300px'
 })
+// CODE FOR SINGLE PRODUCT PAGE
 
 const mainImageElement = document.querySelector('.main-image');
 const altImageElements = document.querySelectorAll('.alt-image');
@@ -31,15 +32,32 @@ cardElement.forEach((eachCard) => {
     redirectToSingleProductPage();
   })
 })
+const addToCartBtn = document.querySelector('.add-to-cart');
+function changeCartButton() {
+
+  if (addToCartBtn.innerText === 'ADDED') {
+    addToCartBtn.innerText = 'ADD TO CART';
+    addToCartBtn.classList.remove('add-to-cart-btn');
+
+  }
+  else {
+    addToCartBtn.classList.add('add-to-cart-btn')
+    addToCartBtn.innerText = 'ADDED'
+  }
+}
+
+addToCartBtn.addEventListener('click', () => {
+  changeCartButton()
+})
 
 // Setting up the cart section
 
 document.addEventListener('DOMContentLoaded', function () {
   const addToCartbtnElement = document.querySelector('.add-to-cart');
 
-    addToCartbtnElement.addEventListener('click', () => {
-      addingProductsToCart();
-    });
+  addToCartbtnElement.addEventListener('click', () => {
+    addingProductsToCart();
+  });
 
 
   function addingProductsToCart() {
@@ -60,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Retrieve existing cart items from storage or initialize an empty array
     const existingCartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
     // Add the new cart item to the array
     existingCartItems.push(cartItem);
 

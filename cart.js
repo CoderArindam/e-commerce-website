@@ -49,4 +49,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   grandTotalElement.textContent = `Grand Total: ${grandTotal} Rs.`;
 });
-
